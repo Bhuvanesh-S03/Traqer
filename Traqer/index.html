@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Traqer — Admin</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- SheetJS for Excel parsing -->
+  <script src="https://cdn.jsdelivr.net/npm/xlsx-style@0.8.13/dist/xlsx.full.min.js"></script>
+
+  <style>
+    :root {
+      --sand-1: #f6b10a;
+      --sand-2: #fddc69;
+      --bg: #f7f8fa;
+      --panel: #ffffff;
+      --text: #1e293b;
+      --muted: #64748b;
+    }
+
+    html, body, #app { height: 100%; margin: 0; }
+
+    body {
+      background: linear-gradient(180deg, #fbfcfd 0%, #f7f8fa 100%);
+      color: var(--text);
+      font-family: "Inter", "Poppins", system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Sidebar + Nav */
+    .sidebar {
+      background: linear-gradient(180deg, rgba(246,177,10,0.06), rgba(253,220,105,0.03));
+      border-right: 1px solid rgba(30,41,59,0.06);
+    }
+
+    .nav-btn {
+      color: var(--text);
+      padding: 10px 14px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.2s ease;
+    }
+    .nav-btn:hover,
+    .nav-btn.active {
+      background: rgba(246,177,10,0.12);
+      box-shadow: 0 0 12px rgba(246,177,10,0.08);
+      color: #000;
+    }
+
+    /* Card + Input + Button */
+    .card {
+      background: var(--panel);
+      border-radius: 12px;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.05);
+      border: 1px solid rgba(17,24,39,0.04);
+    }
+
+    .input-field {
+      background: #fff;
+      border: 1px solid rgba(30,41,59,0.08);
+      color: var(--text);
+      padding: 10px 12px;
+      border-radius: 8px;
+      outline: none;
+      width: 100%;
+    }
+    .input-field:focus {
+      box-shadow: 0 0 0 2px rgba(246,177,10,0.3);
+      border-color: var(--sand-1);
+    }
+
+    .btn-gold {
+      background: linear-gradient(90deg,var(--sand-1),var(--sand-2));
+      color: #0b1220;
+      font-weight: 600;
+      border-radius: 8px;
+      padding: 10px 14px;
+      transition: 0.2s;
+    }
+    .btn-gold:hover { filter: brightness(1.1); }
+
+    .small-muted { color: var(--muted); font-size: 13px; }
+
+    /* Map & Leaflet tweaks */
+    .leaflet-container { border-radius: 10px; overflow: hidden; }
+    .leaflet-control-attribution { display: none !important; } /* hides OSM watermark */
+
+    /* Toast notification */
+    #toast {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 9999;
+      background: #16a34a;
+      color: #fff;
+      padding: 12px 18px;
+      border-radius: 8px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+      font-weight: 500;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    #toast.show { opacity: 1; }
+  </style>
+</head>
+
+<body>
+  <div id="app"></div>
+  <div id="toast"></div>
+
+  <!-- Scripts -->
+  <script type="module" src="./firebase-config.js"></script>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

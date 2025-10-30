@@ -1,0 +1,17 @@
+{
+  "name": "traqer-admin-seeder",
+  "version": "1.0.0",
+  "description": "Node.js script to seed Firebase Auth users with custom claims and initial Firestore data.",
+  "main": "seed.js",
+  "type": "module",
+  "scripts": {
+    "seed": "node seed.js",
+    "set-admin": "node set_claim.js",
+    "create-user": "node create_user_auth.js"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.16",
+    "firebase-admin": "^11.6.0",
+    "tailwindcss": "^4.1.16"
+  }
+}

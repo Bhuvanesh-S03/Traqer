@@ -45,6 +45,7 @@
     <!-- 3. INTERNET (Required for Firebase RTDB and fetching map tiles) -->
     <uses-permission android:name="android.permission.INTERNET"/>
     
+    
     <!-- Optional: Wake lock permission often required by background geolocator services -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
